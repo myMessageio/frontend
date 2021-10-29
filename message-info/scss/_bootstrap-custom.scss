@@ -1,0 +1,171 @@
+// custom variables and override bootstrap variables
+
+$body-bg: #fff;
+
+$white:    #fff !default;
+$gray-100: #f8f9fa;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #6c757d !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black:    #000 !default;
+
+$grays: () !default;
+
+$blue:    #7749f8;
+$indigo:  #6610f2 !default;
+$purple:  #6f42c1 !default;
+$pink:    #e83e8c !default;
+$red:     #dc3545 !default;
+$orange:  #fd7e14 !default;
+$yellow:  #ffc107 !default;
+$green:   #28a745 !default;
+$teal:    #20c997 !default;
+$cyan:    #17a2b8 !default;
+
+$colors: () !default;
+
+$colors: map-merge(
+	(
+		"blue":       $blue,
+		"indigo":     $indigo,
+		"purple":     $purple,
+		"pink":       $pink,
+		"red":        $red,
+		"orange":     $orange,
+		"yellow":     $yellow,
+		"green":      $green,
+		"teal":       $teal,
+		"cyan":       $cyan,
+		"white":      $white,
+		"gray":       $gray-600,
+		"gray-dark":  $gray-800
+	),
+	$colors
+);
+
+$primary:       $blue;
+$secondary:     $gray-600 !default;
+$success:       $green !default;
+$info:          $cyan !default;
+$warning:       $yellow !default;
+$danger:        $red !default;
+$light:         $gray-100 !default;
+$dark:          $gray-800 !default;
+
+$theme-colors: () !default;
+
+$theme-colors: map-merge(
+	(
+		"primary":    $primary,
+		"secondary":  $secondary,
+		"success":    $success,
+		"info":       $info,
+		"warning":    $warning,
+		"danger":     $danger,
+		"light":      $light,
+		"dark":       $dark
+	),
+	$theme-colors
+);
+
+// Options
+
+$enable-caret:                                true !default;
+$enable-rounded:                              true !default;
+$enable-shadows:                              false !default;
+$enable-gradients:                            false !default;
+$enable-transitions:                          true !default;
+$enable-prefers-reduced-motion-media-query:   true !default;
+$enable-hover-media-query:                    false !default; // Deprecated, no longer affects any compiled CSS
+$enable-grid-classes:                         true !default;
+$enable-pointer-cursor-for-buttons:           true !default;
+$enable-print-styles:                         true !default;
+$enable-responsive-font-sizes:                false !default;
+$enable-validation-icons:                     true !default;
+$enable-deprecation-messages:                 true !default;
+
+// Spacing
+
+$spacer: 1rem !default;
+$spacers: () !default;
+$spacers: map-merge(
+	(
+		0: 0,
+		1: ($spacer * .25),
+		2: ($spacer * .5),
+		3: $spacer,
+		4: ($spacer * 1.5),
+		5: ($spacer * 3)
+	),
+	$spacers
+);
+
+$base-min-width: 320px;
+
+// This is the default html and body font-size for the base rem value.
+$rem-base: 16px;
+
+/*customization of default elements*/
+$default-bg: linear-gradient(78.77deg, #18e8d9 -6.28%, #009ee2 109.35%);
+$arial-font: 'Arial', 'Helvetica', sans-serif;
+$galanogrote-font: 'galanogrote', $arial-font;
+$font-family-base: $galanogrote-font;
+$light-blue: #009ee2;
+$light-black: #232142;
+$body-color: #232142;
+$link-hover-decoration: none;
+$grid-gutter-width: 24px;
+$line-height-base: 1.75;
+$h1-font-size: 40px;
+$h2-font-size: 32px;
+$h3-font-size: 28px;
+$h4-font-size: 24px;
+$h5-font-size: 20px;
+$h6-font-size: 16px;
+$headings-font-weight: 600;
+$navbar-light-color: $light-blue;
+$navbar-light-hover-color: $light-black;
+$navbar-light-active-color: $light-black;
+$navbar-light-toggler-icon-bg: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'><path stroke='#{$light-blue}' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/></svg>");
+$navbar-light-toggler-border-color: $light-blue;
+$modal-md: 550px;
+$modal-content-border-radius: 8px;
+$modal-backdrop-bg:	#3c3566;
+$modal-backdrop-opacity: 0.7;
+$btn-disabled-opacity: 0.4;
+$pagination-padding-y: 12px;
+$pagination-padding-x: 13px;
+$pagination-line-height: 1.25;
+$pagination-color: #dee2e6;
+$pagination-border-width: 1px;
+$pagination-border-color: #dee2e6;
+$pagination-focus-box-shadow: none;
+$pagination-hover-color: $white;
+$pagination-hover-bg: #009ee2;
+$pagination-hover-border-color: #009ee2;
+$pagination-active-color: $white;
+$pagination-active-bg: #009ee2;
+$pagination-active-border-color: #009ee2;
+$pagination-disabled-color: #b5babe;
+$pagination-disabled-border-color: #dee2e6;
+
+
+$grid-breakpoints: (
+	xs: 0,
+	sm: 576px,
+	md: 768px,
+	lg: 992px,
+	xl: 1200px
+);
+
+$container-max-widths: (
+	sm: 540px,
+	md: 720px,
+	lg: 960px,
+	xl: 1142px
+);

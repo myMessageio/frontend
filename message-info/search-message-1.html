@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>myMessage - light-grade & encrypted data storage</title>
+	<link rel="icon" type="image/png" sizes="32x32" href="images/favicon.png">
+	<link rel="stylesheet" href="css/jquery-ui.min.css">
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/main.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" defer></script>
+	<script>window.jQuery || document.write('<script src="js/jquery-3.3.1.min.js" defer><\/script>')</script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous" defer></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous" defer></script>
+	<script src="js/jq.ui.datepicker.js" defer></script>
+	<script src="js/jquery.main.js" defer></script>
+</head>
+<body>
+	<div id="wrapper">
+		<div class="wrapper-holder">
+			<header class="header">
+				<div class="container">
+					<div class="header-holder">
+						<strong class="logo">
+							<a href="#"><img src="images/logo.svg" alt="My Message"></a>
+						</strong>
+						<nav class="navbar navbar-expand-lg navbar-light">
+							<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation-collapse" aria-controls="navigation-collapse" aria-expanded="false" aria-label="Toggle navigation">
+								<span class="navbar-toggler-icon"></span>
+							</button>
+							<div class="collapse navbar-collapse" id="navigation-collapse">
+								<div class="nav-area">
+									<ul class="navbar-nav">
+										<li class="nav-item">
+											<a class="nav-link" href="#">Home</a>
+										</li>
+										<li class="nav-item">
+											<a class="nav-link" href="#">Send Message</a>
+										</li>
+										<li class="nav-item">
+											<a class="nav-link" href="#">Read Message</a>
+										</li>
+										<li class="nav-item">
+											<a class="nav-link" href="#">Message Viewer</a>
+										</li>
+										<li class="nav-item active">
+											<a class="nav-link" href="#">Search</a>
+										</li>
+									</ul>
+									<div class="header-select">
+										<a href="#" class="select-opener">
+											<span class="select-opener-text">
+												<span class="select-image">
+													<img src="images/zilliqa.svg" width="15" height="21" alt="zilliqa">
+												</span>
+												<span class="select-text">Zilliqa</span>
+											</span>
+										</a>
+										<div class="header-select-dropdown">
+											<ul class="select-dropdown-list list-unstyled">
+												<li>
+													<a href="#" class="select-dropdown-link">
+														<span class="select-opener-text">
+															<span class="select-image">
+																<img src="images/binance.svg" width="20" height="20" alt="Binance">
+															</span>
+															<span class="select-text">Binance Smart Chain</span>
+														</span>
+													</a>
+												</li>
+												<li>
+													<a href="#" class="select-dropdown-link">
+														<span class="select-opener-text">
+															<span class="select-image">
+																<img src="images/avax.svg" width="20" height="20" alt="Avalanche">
+															</span>
+															<span class="select-text">Avalanche</span>
+														</span>
+													</a>
+												</li>
+												<li class="active">
+													<a href="#" class="select-dropdown-link">
+														<span class="select-opener-text">
+															<span class="select-image">
+																<img src="images/zilliqa.svg" width="15" height="21" alt="zilliqa">
+															</span>
+															<span class="select-text">Zilliqa</span>
+														</span>
+													</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+									<span class="btn-wrap">
+										<a href="#" class="btn btn-outline-primary">
+											<span class="btn-text">disconnect</span>
+										</a>
+									</span>
+								</div>
+							</div>
+						</nav>
+					</div>
+				</div>
+			</header>
+			<main class="main">
+				<div class="message-info-section">
+					<div class="container">
+						<div class="heading-area">
+							<h1 class="h4">Search message</h1>
+							<p>Search by using sender address, from and to date, and/or keywords. You can also search for messages that is encrypted </p>
+						</div>
+						<form action="#" class="search-message-section">
+							<div class="form-group-area" data-datepicker='{"source": "./inc/datepicker-source.json", "rangepicker": true}'>
+								<div class="form-group">
+									<label class="label-field-text">Date From</label>
+									<div class="date-field">
+										<input type="text" class="form-control" placeholder="Any date" data-datepicker-from='{"minDate": 0}'>
+										<span class="date-icon"><i class="icon-calender"></i></span>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="label-field-text">Date To</label>
+									<div class="date-field">
+										<input type="text" class="form-control" placeholder="Any date" data-datepicker-to="">
+										<span class="date-icon"><i class="icon-calender"></i></span>
+									</div>
+								</div>
+							</div>
+							<div class="form-group-area">
+								<div class="form-group">
+									<label class="label-field-text">Address (TXID)</label>
+									<input type="text" class="form-control" placeholder="Search by address (TXID)">
+								</div>
+								<div class="form-group">
+									<label class="label-field-text">Keyword</label>
+									<input type="text" class="form-control" placeholder="Search by Keywords/Tag/Content">
+								</div>
+							</div>
+							<div class="form-group-area">
+								<div class="form-group">
+									<ul class="checkbox-list list-unstyled">
+										<li>
+											<div class="checkbox-area">
+												<label class="checkbox-label">
+													<input type="checkbox">
+													<span class="checkbox-text"><i class="icon"></i>Encrypted  Message Only</span>
+												</label>
+											</div>
+										</li>
+										<li>
+											<div class="checkbox-area">
+												<label class="checkbox-label">
+													<input type="checkbox">
+													<span class="checkbox-text"><i class="icon"></i>With Attachment Only</span>
+												</label>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="form-group-area">
+								<div class="form-group">
+									<a href="#" class="btn btn-primary disabled">Search</a>
+								</div>
+							</div>
+						</form>
+						<div class="pager-area">
+							<div class="wrap">
+								<nav class="pagination-wrap">
+									<ul class="pagination">
+										<li class="page-item disabled"><a class="page-link" href="#">Prev</a></li>
+										<li class="page-item active"><a class="page-link" href="#">1</a></li>
+										<li class="page-item"><a class="page-link" href="#">2</a></li>
+										<li class="page-item"><a class="page-link" href="#">3</a></li>
+										<li class="page-item"><a class="page-link" href="#">Next</a></li>
+									</nav>
+								</nav>
+								<div class="pager-info">
+									<strong class="pager-text">Total 112 messages</strong>
+								</div>
+							</div>
+						</div>
+						<div class="message-table-area">
+							<div class="message-table-holder">
+								<div class="table-head">
+									<div class="table-row">
+										<strong class="table-title">#</strong>
+									</div>
+									<div class="table-row">
+										<strong class="table-title">Name</strong>
+									</div>
+									<div class="table-row">
+										<strong class="table-title">TXID</strong>
+									</div>
+								</div>
+								<ul class="table-accordion list-unstyled">
+									<li>
+										<div class="table-row-wrap">
+											<div class="table-row" data-title="#">
+												<span class="number"></span>
+											</div>
+											<div class="table-row" data-title="Name">
+												<span class="text">Message#1</span>
+											</div>
+											<div class="table-row" data-title="TXID">
+												<span class="link-text"><a href="#">0xbCC817f057950b0df41206C5D7125E6225Cae18e</a></span>
+												<a href="#" class="accordion-opener"><i class="icon-down"></i></a>
+											</div>
+										</div>
+										<div class="accordion-slide">
+											<div class="slide-content">
+												<div class="text-area">
+													<p>Message notes goes here...</p>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="table-row-wrap">
+											<div class="table-row" data-title="#">
+												<span class="number"></span>
+											</div>
+											<div class="table-row" data-title="Name">
+												<span class="text">Message#2</span>
+											</div>
+											<div class="table-row" data-title="TXID">
+												<span class="link-text"><a href="#">0xd4fa1460f537bb9085d22c7bccb5dd450ef28e3a</a></span>
+												<a href="#" class="accordion-opener"><i class="icon-down"></i></a>
+											</div>
+										</div>
+										<div class="accordion-slide">
+											<div class="slide-content">
+												<div class="text-area">
+													<p>Message notes goes here...</p>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="table-row-wrap">
+											<div class="table-row" data-title="#">
+												<span class="number"></span>
+											</div>
+											<div class="table-row" data-title="Name">
+												<span class="text">Message#3</span>
+											</div>
+											<div class="table-row" data-title="TXID">
+												<span class="link-text"><a href="#">0x794d28ac31bcb136294761a556b68d2634094153</a></span>
+												<a href="#" class="accordion-opener"><i class="icon-down"></i></a>
+											</div>
+										</div>
+										<div class="accordion-slide">
+											<div class="slide-content">
+												<div class="text-area">
+													<p>Message notes goes here...</p>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="table-row-wrap">
+											<div class="table-row" data-title="#">
+												<span class="number"></span>
+											</div>
+											<div class="table-row" data-title="Name">
+												<span class="text">Message#4</span>
+											</div>
+											<div class="table-row" data-title="TXID">
+												<span class="link-text"><a href="#">0xd4fa1460f537bb9085d22c7bccb5dd450ef28e3a</a></span>
+												<a href="#" class="accordion-opener"><i class="icon-down"></i></a>
+											</div>
+										</div>
+										<div class="accordion-slide">
+											<div class="slide-content">
+												<div class="text-area">
+													<p>Message notes goes here...</p>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="table-row-wrap">
+											<div class="table-row" data-title="#">
+												<span class="number"></span>
+											</div>
+											<div class="table-row" data-title="Name">
+												<span class="text">Message#5</span>
+											</div>
+											<div class="table-row" data-title="TXID">
+												<span class="link-text"><a href="#">0x794d28ac31bcb136294761a556b68d2634094153</a></span>
+												<a href="#" class="accordion-opener"><i class="icon-down"></i></a>
+											</div>
+										</div>
+										<div class="accordion-slide">
+											<div class="slide-content">
+												<div class="text-area">
+													<p>Message notes goes here...</p>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="table-row-wrap">
+											<div class="table-row" data-title="#">
+												<span class="number"></span>
+											</div>
+											<div class="table-row" data-title="Name">
+												<span class="text">Message#6</span>
+											</div>
+											<div class="table-row" data-title="TXID">
+												<span class="link-text"><a href="#">0xd4fa1460f537bb9085d22c7bccb5dd450ef28e3a</a></span>
+												<a href="#" class="accordion-opener"><i class="icon-down"></i></a>
+											</div>
+										</div>
+										<div class="accordion-slide">
+											<div class="slide-content">
+												<div class="text-area">
+													<p>Message notes goes here...</p>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="table-row-wrap">
+											<div class="table-row" data-title="#">
+												<span class="number"></span>
+											</div>
+											<div class="table-row" data-title="Name">
+												<span class="text">Message#7</span>
+											</div>
+											<div class="table-row" data-title="TXID">
+												<span class="link-text"><a href="#">0x794d28ac31bcb136294761a556b68d2634094153</a></span>
+												<a href="#" class="accordion-opener"><i class="icon-down"></i></a>
+											</div>
+										</div>
+										<div class="accordion-slide">
+											<div class="slide-content">
+												<div class="text-area">
+													<p>Message notes goes here...</p>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="table-row-wrap">
+											<div class="table-row" data-title="#">
+												<span class="number"></span>
+											</div>
+											<div class="table-row" data-title="Name">
+												<span class="text">Message#8</span>
+											</div>
+											<div class="table-row" data-title="TXID">
+												<span class="link-text"><a href="#">0xd4fa1460f537bb9085d22c7bccb5dd450ef28e3a</a></span>
+												<a href="#" class="accordion-opener"><i class="icon-down"></i></a>
+											</div>
+										</div>
+										<div class="accordion-slide">
+											<div class="slide-content">
+												<div class="text-area">
+													<p>Message notes goes here...</p>
+												</div>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</main>
+		</div>
+	</div>
+</body>
+</html>

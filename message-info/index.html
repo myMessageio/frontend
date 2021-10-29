@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>myMessage - light-grade & encrypted data storage</title>
+	<link rel="icon" type="image/png" sizes="32x32" href="images/favicon.png">
+	<link rel="stylesheet" href="css/dropzone.min.css">
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/main.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" defer></script>
+	<script>window.jQuery || document.write('<script src="js/jquery-3.3.1.min.js" defer><\/script>')</script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous" defer></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous" defer></script>
+	<script src="js/dropzone.min.js" defer></script>
+	<script src="js/dropzone.js" defer></script>
+	<script src="js/jquery.main.js" defer></script>
+</head>
+<body>
+	<div id="wrapper">
+		<div class="wrapper-holder">
+			<header class="header">
+				<div class="container">
+					<div class="header-holder">
+						<strong class="logo">
+							<a href="#"><img src="images/logo.svg" alt="My Message"></a>
+						</strong>
+						<nav class="navbar navbar-expand-lg navbar-light">
+							<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation-collapse" aria-controls="navigation-collapse" aria-expanded="false" aria-label="Toggle navigation">
+								<span class="navbar-toggler-icon"></span>
+							</button>
+							<div class="collapse navbar-collapse" id="navigation-collapse">
+								<div class="nav-area">
+									<ul class="navbar-nav">
+										<li class="nav-item">
+											<a class="nav-link" href="#">Home</a>
+										</li>
+										<li class="nav-item active">
+											<a class="nav-link" href="#">Send Message</a>
+										</li>
+										<li class="nav-item">
+											<a class="nav-link" href="#">Read Message</a>
+										</li>
+										<li class="nav-item">
+											<a class="nav-link" href="#">Message Viewer</a>
+										</li>
+										<li class="nav-item">
+											<a class="nav-link" href="#">Search</a>
+										</li>
+									</ul>
+									<div class="header-select">
+										<a href="#" class="select-opener">
+											<span class="select-opener-text">
+												<span class="select-image">
+													<img src="images/zilliqa.svg" width="15" height="21" alt="zilliqa">
+												</span>
+												<span class="select-text">Zilliqa</span>
+											</span>
+										</a>
+										<div class="header-select-dropdown">
+											<ul class="select-dropdown-list list-unstyled">
+												<li>
+													<a href="#" class="select-dropdown-link">
+														<span class="select-opener-text">
+															<span class="select-image">
+																<img src="images/binance.svg" width="20" height="20" alt="Binance">
+															</span>
+															<span class="select-text">Binance Smart Chain</span>
+														</span>
+													</a>
+												</li>
+												<li>
+													<a href="#" class="select-dropdown-link">
+														<span class="select-opener-text">
+															<span class="select-image">
+																<img src="images/avax.svg" width="20" height="20" alt="Avalanche">
+															</span>
+															<span class="select-text">Avalanche</span>
+														</span>
+													</a>
+												</li>
+												<li class="active">
+													<a href="#" class="select-dropdown-link">
+														<span class="select-opener-text">
+															<span class="select-image">
+																<img src="images/zilliqa.svg" width="15" height="21" alt="zilliqa">
+															</span>
+															<span class="select-text">Zilliqa</span>
+														</span>
+													</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+									<span class="btn-wrap">
+										<a href="#" class="btn btn-outline-primary">
+											<span class="btn-text">disconnect</span>
+										</a>
+									</span>
+								</div>
+							</div>
+						</nav>
+					</div>
+				</div>
+			</header>
+			<main class="main">
+				<div class="message-info-section">
+					<div class="container">
+						<div class="heading-area">
+							<h1 class="h4">Send message</h1>
+							<p>Send a message permanent and immutable to the blockchain. View your message sent via our explorer or other Zilliqa explorer. </p>
+						</div>
+						<div class="row message-info-row">
+							<div class="col-12 col-lg-6">
+								<div class="col-block">
+									<div class="block-widget">
+										<div class="block-heading">
+											<h2>Encryption Settings using AES256</h2>
+											<p>Add an optional encryption. You’ll be required to enter your password to view the message content.</p>
+										</div>
+										<div class="toggle-checkbox-area">
+											<label class="toggle-checkbox-label">
+												<input type="checkbox" checked>
+												<span class="checkbox-text-wrap">
+													<span class="toggle-checkbox"></span>
+													<span class="checkbox-text">Encrypt Message</span>
+												</span>
+											</label>
+										</div>
+										<div class="form-group">
+											<input type="password" class="form-control" placeholder="Enter password">
+										</div>
+										<div class="form-group">
+											<input type="password" class="form-control" placeholder="Retype password">
+										</div>
+									</div>
+									<div class="block-widget">
+										<div class="block-heading">
+											<h2>Add optional files</h2>
+										</div>
+										<div class="file-field-area">
+											<div class="dropzone needsclick" id="file-upload">
+												<div class="dz-message needsclick">
+													<div class="file-field">
+														<span class="file-text">Choose another file</span>
+														<span class="file-btn">Browse</span>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="file-check-area">
+											<div class="checkbox-area">
+												<label class="checkbox-label">
+													<input type="checkbox">
+													<span class="checkbox-text"><i class="icon"></i> Encrypt file(s)</span>
+												</label>
+											</div>
+											<div id="file-name-holder" class="file-name-holder"></div>
+										</div>
+									</div>
+									<div class="block-widget">
+										<div class="toggle-checkbox-area">
+											<label class="toggle-checkbox-label">
+												<input type="checkbox">
+												<span class="checkbox-text-wrap">
+													<span class="toggle-checkbox"></span>
+													<span class="checkbox-text">Send a copy to an email address</span>
+												</span>
+											</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-12 col-lg-6">
+								<div class="col-block style01">
+									<div class="block-widget">
+										<div class="block-heading">
+											<h2>Add hash tags</h2>
+											<p>You can use this to find your encrypted message in the future. Seperate them with a comma.</p>
+										</div>
+										<div class="form-group mb-0">
+											<input type="text" class="form-control" placeholder="eg. #fashion, #beautiful, #patent">
+											<span class="note">Seperate hash tags by using the comma. </span>
+										</div>
+									</div>
+									<div class="block-widget">
+										<div class="block-heading">
+											<h2>Your Message</h2>
+										</div>
+										<div class="form-group">
+											<div class="select-holder">
+												<span class="select-label">Font : </span>
+												<select>
+													<option>12px</option>
+													<option>14px</option>
+													<option>16px</option>
+													<option>18px</option>
+													<option>20px</option>
+												</select>
+											</div>
+										</div>
+										<div class="form-group">
+											<textarea class="form-control" placeholder="Write your message here"></textarea>
+											<span class="note">Pay less than $0.1 for 1 kByte of message up to $5 for 60 kBytes.</span>
+										</div>
+										<span class="file-size">File Size:  23kbps.</span>
+									</div>
+								</div>
+								<div class="btn-holder">
+									<a href="#" data-toggle="modal" data-target="#confirm-modal" class="btn btn-primary">confirm message</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</main>
+		</div>
+	</div>
+	<!-- Confirmation Modal -->
+	<div class="modal fade" id="confirm-modal" tabindex="-1" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header d-block">
+					<strong class="modal-title d-block">Confirm</strong>
+					<p>Are you sure you want to send your message permenently to the blockchain. It will cost an estimated gas fee of 3.3512 ZIL.</p>
+				</div>
+				<div class="modal-body">
+					<div class="modal-message-block">
+						<ul class="info-message-list list-unstyled">
+							<li>
+								<span class="title">Message:</span>
+								<span class="text">Encrypted</span>
+							</li>
+							<li>
+								<span class="title">File Attachment:</span>
+								<span class="text">Not encrypted</span>
+							</li>
+							<li>
+								<span class="title">Total Size</span>
+								<span class="text">3413 Bytes</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<ul class="btns-list list-unstyled">
+						<li>
+							<a href="#" class="btn btn-outline-danger" data-dismiss="modal">BACK</a>
+						</li>
+						<li>
+							<a href="#" class="btn btn-primary" data-dismiss="modal">Confirm</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Confirmation Waiting Modal -->
+	<div class="modal fade" id="waiting-confirm-modal" tabindex="-1" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header d-block">
+					<strong class="modal-title d-block">Waiting for confirmation</strong>
+					<p>Submitting a message to the blockchain</p>
+				</div>
+				<div class="modal-body">
+					<div class="confirm-image">
+						<img src="images/spiner-image.svg" alt="image-description">
+					</div>
+					<span class="confirm-text">Confirm this transaction in your wallet</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Transaction Submit Modal -->
+	<div class="modal fade submit-confirm-modal" id="submit-t-confirm-modal" tabindex="-1" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header d-block">
+					<strong class="modal-title d-block">Transaction submitted!</strong>
+					<p>Your transaction has been submitted to the blockchain and once confirmed will be permantly stored. Congrats! </p>
+				</div>
+				<div class="modal-body">
+					<div class="t-submit-image">
+						<img src="images/submit-arrow.png" alt="image-description">
+					</div>
+				</div>
+				<div class="modal-footer">
+					<ul class="btns-list list-unstyled">
+						<li>
+							<a href="#" class="btn btn-primary">NEXT</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Transaction Confirmation Modal -->
+	<div class="modal fade submit-confirm-modal" id="submit-confirm-modal" tabindex="-1" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header d-block">
+					<strong class="modal-title d-block">Transaction confirmed!</strong>
+					<p>Your transaction has been submitted to the blockchain.</p>
+				</div>
+				<div class="modal-body">
+					<div class="submit-image">
+						<img src="images/submit.svg" alt="image-description">
+					</div>
+				</div>
+				<div class="modal-footer">
+					<ul class="btns-list list-unstyled">
+						<li>
+							<a href="#" class="btn btn-primary">SHOW MESSAGE ID</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Message ID Modal -->
+	<div class="modal fade message-id-modal" id="message-id-modal" tabindex="-1" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header d-block">
+					<strong class="modal-title d-block">Your Message ID</strong>
+					<p>This is your ID/TXID. It is one of the ways you can retreive your message in the future.</p>
+				</div>
+				<div class="modal-body">
+					<div class="modal-message-block">
+						<ul class="info-message-list list-unstyled">
+							<li>
+								<span class="title">Message:</span>
+								<span class="text">Encrypted</span>
+							</li>
+							<li>
+								<span class="title">File Attachment:</span>
+								<span class="text">Encrypted</span>
+							</li>
+							<li>
+								<span class="title">Total Size</span>
+								<span class="text">2433 Bytes</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<ul class="btns-list list-unstyled">
+						<li>
+							<a href="#" class="btn btn-download">DOWNLOAD as .TXT</a>
+						</li>
+						<li>
+							<a href="#" class="btn btn-primary" data-dismiss="modal">CLOSE</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

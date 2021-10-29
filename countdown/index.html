@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>CountDown</title>
+	<link media="all" rel="stylesheet" href="css/main.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="js/jquery-3.3.1.min.js"><\/script>')</script>
+	<script src="js/timecircles.js"></script>
+</head>
+<body>
+	<div id="wrapper">
+		<div class="countdown-section">
+			<div class="container">
+				<header class="header">
+					<ul class="menu">
+						<li><a href="#">Synthetic Platform</a></li>
+						<li><a href="#">NovelSwap</a></li>
+						<li><a href="#">Staking</a></li>
+						<li><a href="#">LP Farming</a></li>
+						<li><a href="#">Bridge</a></li>
+					</ul>
+				</header>
+				<main class="main">
+					<div class="time-info-section">
+						<h1>Countdown To CEX Listing</h1>
+						<div id="DateCountdown" class="countdown-list" data-date="2021-10-30 00:00:00"></div>
+					</div>
+				</main>
+				<footer class="footer">
+					<div class="footer-holder">
+						<strong class="f-logo">
+							<a href="#">
+								<img src="images/logo.png" alt="logo">
+							</a>
+						</strong>
+						<div class="footer-info-area">
+							<div class="footer-info">
+								<span class="footer-text">Re-imagine trading. A place for all investors</span>
+								<span class="url-link">
+									<a href="#">https://plutos.network</a>
+								</span>
+							</div>
+						</div>
+					</div>
+				</footer>
+			</div>
+		</div>
+	</div>
+	<script>
+		$("#DateCountdown").TimeCircles();
+	</script>
+</body>
+</html>

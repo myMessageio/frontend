@@ -1,0 +1,384 @@
+// vertical align el inside parent with fixed height/min-height
+// usage 
+// html - .parent>.child
+// scss - @include v-align;
+//     or @include v-align(250px);
+//     or @include v-align(250px, bottom, before);
+//
+
+@mixin v-align($va-height: 100%, $va-direction: middle, $va-pseudo: after) {
+	white-space: nowrap;
+	text-align: center;
+
+	&:#{$va-pseudo} {
+		content: '';
+		display: inline-block;
+		vertical-align: $va-direction;
+		width: 0;
+		min-height: $va-height;
+	}
+
+	> * {
+		white-space: normal;
+		display: inline-block;
+		vertical-align: $va-direction;
+		max-width: 99%;
+	}
+}
+
+// vertical align a pair of child el inside parent
+// usage 
+// html - .post>.image+.text
+// scss - @include v-align-pair(image, text);
+//     or @include v-align-pair(image, text, bottom);
+//     or @include v-align-pair(image, text, middle, 200px);
+//
+
+@mixin v-align-pair($child-name1, $child-name2, $valign: middle, $width1: auto, $width2: auto ) {
+	display: table;
+	.#{$child-name1}{
+		display: table-cell;
+		vertical-align: $valign;
+		width: $width1; 
+	}
+ .#{$child-name2} {
+		display: table-cell;
+		vertical-align: $valign;
+		width: $width2;
+	}
+}
+
+		
+// vertical align el
+// usage: @include vertical-align-el;
+//
+@mixin vertical-align-el {
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+/// Creates a visual triangle. 
+/// Mixin takes ($size, $color, $direction)
+/// The $size argument can take one or two values—width height.
+/// The $color argument can take one or two 
+/// values—foreground-color background-color.
+/// 
+/// @author http://bourbon.io/docs/#triangle
+///
+/// $direction: 
+/// up, down, left, right, up-right, up-left, down-right, down-left
+/// @example scss - Usage
+///   @include triangle(12px, gray, down);
+///   @include triangle(12px 6px, gray blue, up-left);
+///
+
+@mixin triangle($size, $color, $direction) {
+	$width: nth($size, 1);
+	$height: nth($size, length($size));
+	$foreground-color: nth($color, 1);
+	$background-color: if(length($color) == 2, nth($color, 2), transparent);
+	height: 0;
+	width: 0;
+
+	@if ($direction == up) or ($direction == down) or ($direction == right) or ($direction == left) {
+		$width: $width / 2;
+		$height: if(length($size) > 1, $height, $height/2);
+
+		@if $direction == up {
+			border-bottom: $height solid $foreground-color;
+			border-left: $width solid $background-color;
+			border-right: $width solid $background-color;
+		} @else if $direction == right {
+			border-bottom: $width solid $background-color;
+			border-left: $height solid $foreground-color;
+			border-top: $width solid $background-color;
+		} @else if $direction == down {
+			border-left: $width solid $background-color;
+			border-right: $width solid $background-color;
+			border-top: $height solid $foreground-color;
+		} @else if $direction == left {
+			border-bottom: $width solid $background-color;
+			border-right: $height solid $foreground-color;
+			border-top: $width solid $background-color;
+		}
+	} @else if ($direction == up-right) or ($direction == up-left) {
+		border-top: $height solid $foreground-color;
+
+		@if $direction == up-right {
+			border-left:  $width solid $background-color;
+		} @else if $direction == up-left {
+			border-right: $width solid $background-color;
+		}
+	} @else if ($direction == down-right) or ($direction == down-left) {
+		border-bottom: $height solid $foreground-color;
+
+		@if $direction == down-right {
+			border-left:  $width solid $background-color;
+		} @else if $direction == down-left {
+			border-right: $width solid $background-color;
+		}
+	} @else if ($direction == inset-up) {
+		border-color: $background-color $background-color $foreground-color;
+		border-style: solid;
+		border-width: $height $width;
+	} @else if ($direction == inset-down) {
+		border-color: $foreground-color $background-color $background-color;
+		border-style: solid;
+		border-width: $height $width;
+	} @else if ($direction == inset-right) {
+		border-color: $background-color $background-color $background-color $foreground-color;
+		border-style: solid;
+		border-width: $width $height;
+	} @else if ($direction == inset-left) {
+		border-color: $background-color $foreground-color $background-color $background-color;
+		border-style: solid;
+		border-width: $width $height;
+	}
+}
+
+
+/// Animate css properties
+// usage 
+// scss - @include animate(color);
+//     or @include animate(color width);
+//     or @include animate(color width, 1s, linear);
+//
+$animation-speed: .3s !default;
+
+@mixin animate($properties, $duration: $animation-speed, $easing: ease-in-out) {
+	$list:();
+	@each $prop in $properties {
+		$str: #{$prop} #{$animation-speed} #{$easing};
+		$list: join($list, $str, comma);
+	}
+	transition: $list;
+}
+
+// placeholder
+@mixin placeholder($color: $placeholder-color) {
+	&:-moz-placeholder        { color: $color; opacity: 1; }
+	&::-moz-placeholder       { color: $color; opacity: 1; }
+	&:-ms-input-placeholder     { color: $color; }
+	&::-webkit-input-placeholder  { color: $color; }
+}
+
+
+// hide text
+
+@mixin hide-text {
+	overflow: hidden;
+	text-indent: -9999px;
+}
+
+// Sizing shortcuts
+@mixin size($width, $height) {
+	width: $width;
+	height: $height;
+}
+
+@mixin square($size) {
+	@include size($size, $size);
+}
+
+// mixin for Alignment
+@mixin align($value1, $value2) {
+	display: $value1;
+	vertical-align: $value2;
+}
+
+// mixin for position
+@mixin position ($top: 0, $right: $top, $bottom: $top, $left: $top) {
+	position: absolute;
+	top: $top;
+	right: $right;
+	bottom: $bottom;
+	left: $left;
+}
+
+// mixin for flex
+@mixin flex-between () {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	justify-content: space-between;
+}
+
+// mixin for transparent background
+@mixin rgba-background($hexcolor, $opacity) {
+	background-color: $hexcolor;
+	background-color: rgba($hexcolor, $opacity); 
+}
+
+// mixin for font face
+@mixin fontface ($fontfamily, $filename, $font-weight, $font-style) {
+	font-family: $fontfamily;
+	src:url('../fonts/#{$filename}.woff') format('woff'),
+			url('../fonts/#{$filename}.woff2') format('woff2');
+	font-weight: $font-weight;
+	font-style: $font-style;
+}
+
+
+// mixin for animation
+@mixin keyframe ($name) {
+	@-webkit-keyframes $name {
+		@content;
+	}
+	 
+	@-moz-keyframes $name {
+		@content;
+	}
+	 
+	@-o-keyframes $name {
+		@content;
+	}
+	 
+	@keyframes $name {
+	 @content;
+	}
+} 
+
+
+
+// retina mixin
+@mixin img-retina($image, $extension, $width, $height) {
+ @media (min--moz-device-pixel-ratio: 1.3),
+ (-o-min-device-pixel-ratio: 2.6/2),
+ (-webkit-min-device-pixel-ratio: 1.3),
+ (min-device-pixel-ratio: 1.3),
+ (min-resolution: 1.3dppx) {   
+	background-image: url('../images/' + $image + '-2x' + '.' + $extension);
+	background-size: $width $height;
+ }
+}
+
+// from http://codepen.io/MichaelArestad/pen/IxFGj 
+@mixin arrow-lazy($al-direction: top, $al-size: 10px, $al-color: #ccc, $al-center: 50%, $al-margin: -1px, $al-pseudo: before){
+	position: relative;
+	border-color: $al-color;
+
+	&:#{$al-pseudo} {
+		position: absolute;
+		content: "";
+		width: 0;
+		height: 0;
+		border: 0;
+		border-color: $al-color;
+
+		@if $al-direction == "right" {
+			top: $al-center;
+			left: 100%;
+			margin-left: $al-margin;
+			margin-top: $al-size * -1;
+			border-top: $al-size solid transparent;
+			border-bottom: $al-size solid transparent;
+			border-left: $al-size solid $al-color;
+			border-left-color: inherit;
+		} @else if $al-direction == "down" {
+			top: 100%;
+			left: $al-center;
+			margin-top: $al-margin;
+			margin-left: $al-size * -1;
+			border-left: $al-size solid transparent;
+			border-right: $al-size solid transparent;
+			border-top: $al-size solid $al-color;
+			border-top-color: inherit;
+		} @else if $al-direction == "left" {
+			top: $al-center;
+			right: 100%;
+			margin-right: $al-margin;
+			margin-top: $al-size * -1;
+			border-top: $al-size solid transparent;
+			border-bottom: $al-size solid transparent; 
+			border-right:$al-size solid $al-color;
+			border-right-color: inherit;
+		} @else {
+			bottom: 100%;
+			left: $al-center;
+			margin-bottom: $al-margin;
+			margin-left: $al-size * -1;
+			border-left: $al-size solid transparent;
+			border-right: $al-size solid transparent;
+			border-bottom: $al-size solid $al-color;
+			border-bottom-color: inherit;
+		}
+	}
+}
+
+// font size
+@mixin fontsize($font-size, $line-height) {
+	font-size: $font-size;
+	line-height: $line-height;
+}
+
+
+// img-responsive
+@mixin img-style {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+// link color
+@mixin link-color($color) {
+ color: $color;
+ &:hover, &:active, &:focus {
+ color: darken($color, 20%);
+ text-decoration: none;
+ }
+}
+
+// some CSS3 style
+@mixin css3($property, $value) {
+ @each $prefix in -webkit-, -moz-, -ms-, -o-, '' {
+	 #{$prefix}#{$property}: $value;
+ }
+}
+
+// clearfix
+@mixin clearfix {
+	&:after {
+		content: " ";
+		display: block;
+		clear: both;
+	}
+}
+
+// reset for list
+@mixin listreset {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+// inline reset
+@mixin inline-reset {
+	font-size: 0;
+	line-height: 0;
+
+>*{
+		font-size: $font-size-base;
+		line-height: $line-height-base;
+	}
+}
+
+//flex
+@mixin flex ($justify-content:space-between, $align-items:center, $flex-direction:row, $flex-wrap:wrap) {
+	display: flex;
+	justify-content: $justify-content;
+	align-items: $align-items;
+	flex-direction: $flex-direction;
+	flex-wrap: $flex-wrap;
+}
+
+// text gradient
+@mixin text-gradient {
+	background: -webkit-linear-gradient(left, #18e8d9 , #009ee2);
+	background: -o-linear-gradient(right, #18e8d9 , #009ee2);
+	background: -moz-linear-gradient(right, #18e8d9 , #009ee2);
+	background: linear-gradient(to right, #18e8d9 , #009ee2);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+

@@ -1,0 +1,106 @@
+// Typography
+
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6,
+.h {
+	font-family: $headings-font-family;
+	font-weight: 700;
+	margin: 0 0 0.5em;
+	color: $headings-color;
+}
+
+h1, .h1 {
+	@include fontsize(62px, 84px);
+
+	@include media('<largescreen') {
+		@include fontsize(56px, 70px);
+	}
+
+	@include media('<widescreen') {
+		@include fontsize(50px, 60px);
+	}
+
+	@include media('<desktop') {
+		@include fontsize(44px, 54px);
+	}
+
+	@include media('<tablet') {
+		@include fontsize(36px, 46px);
+	}
+
+	@include media('<phone') {
+		@include fontsize(30px, 38px);
+	}
+}
+
+h2, .h2 {
+	@include fontsize(42px, 50px);
+
+	@include media('<largescreen') {
+		@include fontsize(38px, 46px);
+	}
+
+	@include media('<widescreen') {
+		@include fontsize(34px, 42px);
+	}
+
+	@include media('<desktop') {
+		@include fontsize(32px, 38px);
+	}
+
+	@include media('<tablet') {
+		@include fontsize(26px, 32px);
+	}
+
+	@include media('<phone') {
+		@include fontsize(23px, 28px);
+	}
+}
+
+h3, .h3 {
+	@include fontsize(21px, 30px);
+	font-weight: 600;
+
+	@include media('<largescreen') {
+		@include fontsize(18px, 24px);
+	}
+
+	@include media('<widescreen') {
+		@include fontsize(17px, 22px);
+	}
+
+	@include media('<tablet') {
+		@include fontsize(16px, 20px);
+	}
+}
+
+h4, .h4 {
+	font-size: $h4-font-size;
+}
+
+h5, .h5 {
+	font-size: $h5-font-size;
+}
+
+h6, .h6 {
+	font-size: $h6-font-size;
+}
+
+p {
+	margin: 0 0 1em;
+}
+
+a {
+	color: $base-link-color;
+	text-decoration: none;
+	transition: all 0.4s ease;
+	outline: none;
+	&:hover,
+	&:focus {
+		text-decoration: none;
+	}
+}

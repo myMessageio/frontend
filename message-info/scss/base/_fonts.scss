@@ -1,0 +1,137 @@
+@font-face {
+	@include fontface(galanogrote, galanogrotesquealtextralightitalic-webfont, 300, italic);
+}
+
+@font-face {
+	@include fontface(galanogrote, galanogrotesquealtextralight-webfont, 300, normal);
+}
+
+@font-face {
+	@include fontface(galanogrote, galanogrotesquealtitalic-webfont, 400, italic);
+}
+
+@font-face {
+	@include fontface(galanogrote, galanogrotesquealtregular-webfont, 400, normal);
+}
+
+@font-face {
+	@include fontface(galanogrote, galanogrotesquealtmediumitalic-webfont, 500, italic);
+}
+
+@font-face {
+	@include fontface(galanogrote, galanogrotesquealtmedium-webfont, 500, normal);
+}
+
+@font-face {
+	@include fontface(galanogrote, galanogrotesquealtsemibolditalic-webfont, 600, italic);
+}
+
+@font-face {
+	@include fontface(galanogrote, galanogrotesquealtsemibold-webfont, 600, normal);
+}
+
+@font-face {
+	@include fontface(galanogrote, galanogrotesquealtbolditalic-webfont, 700, italic);
+}
+
+@font-face {
+	@include fontface(galanogrote, galanogrotesquealtbold-webfont, 700, normal);
+}
+
+@font-face {
+	@include fontface(galanogrote, galanogrotesquealtextrabolditalic-webfont, 800, italic);
+}
+
+@font-face {
+	@include fontface(galanogrote, galanogrotesquealtextrabold-webfont, 800, normal);
+}
+
+@font-face {
+	@include fontface(galanogrote, galanogrotesquealtheavyitalic-webfont, 900, italic);
+}
+
+@font-face {
+	@include fontface(galanogrote, galanogrotesquealtheavy-webfont, 900, normal);
+}
+
+@font-face {
+	@include fontface(icomoon, icomoon, 400, normal);
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	/* use !important to prevent issues with browser extensions that change fonts */
+	font-family: 'icomoon' !important;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-discord:before {
+	content: "\e900";
+}
+
+.icon-refresh:before {
+	content: "\e901";
+}
+
+.icon-twitter:before {
+	content: "\e902";
+}
+
+.icon-send:before {
+	content: "\e903";
+}
+
+.icon-github:before {
+	content: "\e904";
+}
+
+.icon-flickr:before {
+	content: "\e905";
+}
+
+.icon-play:before {
+	content: "\e906";
+}
+
+.icon-lock:before {
+	content: "\e907";
+}
+
+.icon-arrow-right:before {
+	content: "\e908";
+}
+
+.icon-calender:before {
+	content: "\e909";
+}
+
+.icon-down:before {
+	content: "\e90a";
+}
+
+.icon-submit:before {
+	content: "\e90b";
+}
+
+.icon-upload:before {
+	content: "\e90c";
+}
+
+.icon-delete:before {
+	content: "\e90f";
+}
+
+.icon-copy:before {
+	content: "\e90d";
+}
+
+.icon-clear:before {
+	content: "\e90e";
+}
