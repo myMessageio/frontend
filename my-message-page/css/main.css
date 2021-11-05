@@ -2679,6 +2679,14 @@ body.compensate-for-scrollbar {
 	min-width: 230px;
 }
 
+.contact-form.form-success .form-thankyou-block {
+	display: block;
+}
+
+.contact-form.form-success.form-error .form-thankyou-block {
+	display: none;
+}
+
 .field-row {
 	position: relative;
 	display: -webkit-box;
@@ -2734,6 +2742,10 @@ body.compensate-for-scrollbar {
 	height: 56px;
 }
 
+.field-holder .field-wrap.input-error {
+	background: #f00;
+}
+
 .field-holder .field {
 	font-size: 15px;
 	line-height: 20px;
@@ -2768,6 +2780,10 @@ body.compensate-for-scrollbar {
 
 .field-holder textarea {
 	resize: none;
+}
+
+.field-holder textarea.field {
+	padding-top: 10px;
 }
 
 .footer {
@@ -2858,6 +2874,23 @@ body.compensate-for-scrollbar {
 
 .footer-nav a:hover {
 	color: #009ee2;
+}
+
+.form-thankyou-block {
+	background: -webkit-linear-gradient(left, #18e8d9, #009ee2);
+	background: linear-gradient(to right, #18e8d9, #009ee2);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	position: relative;
+	text-align: center;
+	padding: 25px 0 0;
+	font-size: 28px;
+	line-height: 1.2;
+	display: none;
+}
+
+.form-thankyou-block p {
+	margin: 0;
 }
 
 @media (min-width: 768px) {
@@ -3431,6 +3464,10 @@ body.compensate-for-scrollbar {
 		line-height: 20px;
 		letter-spacing: 0;
 	}
+
+	.form-thankyou-block {
+		font-size: 22px;
+	}
 }
 
 @media (max-width: 767px) {
@@ -3694,6 +3731,11 @@ body.compensate-for-scrollbar {
 
 	.footer-nav-col .title {
 		margin: 0 0 14px;
+	}
+
+	.form-thankyou-block {
+		padding: 20px 0 0;
+		font-size: 20px;
 	}
 }
 

@@ -1687,6 +1687,20 @@ $media-expressions: (
 			min-width: 200px;
 		}
 	}
+
+	&.form-success {
+
+		.form-thankyou-block {
+			display: block;
+		}
+
+		&.form-error {
+
+			.form-thankyou-block {
+				display: none;
+			}
+		}
+	}
 }
 
 .field-row {
@@ -1740,6 +1754,10 @@ $media-expressions: (
 		@include media('<phone') {
 			height: 48px;
 		}
+
+		&.input-error {
+			background: #f00;
+		}
 	}
 
 	.field {
@@ -1757,6 +1775,10 @@ $media-expressions: (
 
 	textarea {
 		resize: none;
+
+		&.field {
+			padding-top: 10px;
+		}
 	}
 }
 
@@ -1917,5 +1939,28 @@ $media-expressions: (
 		&:hover {
 			color: $light-blue;
 		}
+	}
+}
+
+.form-thankyou-block {
+	@include text-gradient;
+	position: relative;
+	text-align: center;
+	padding: 25px 0 0;
+	font-size: 28px;
+	line-height: 1.2;
+	display: none;
+
+	@include media('<desktop') {
+		font-size: 22px;
+	}
+
+	@include media('<tablet') {
+		padding: 20px 0 0;
+		font-size: 20px;
+	}
+
+	p {
+		margin: 0;
 	}
 }
