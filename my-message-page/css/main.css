@@ -1596,6 +1596,101 @@ body.compensate-for-scrollbar {
 
 /* Styling for Small-Screen Devices */
 
+/* Slick slider styles */
+
+.slick-slider {
+	position: relative;
+	display: block;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.slick-list {
+	position: relative;
+	overflow: hidden;
+	display: block;
+	margin: 0;
+	padding: 0;
+}
+
+.slick-list:focus {
+	outline: none;
+}
+
+.slick-list.dragging {
+	cursor: pointer;
+}
+
+.slick-slider .slick-track,
+.slick-slider .slick-list {
+	-webkit-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+}
+
+.slick-track {
+	position: relative;
+	left: 0;
+	top: 0;
+	display: block;
+}
+
+.slick-track:before,
+.slick-track:after {
+	content: "";
+	display: table;
+}
+
+.slick-track:after {
+	clear: both;
+}
+
+.slick-loading .slick-track {
+	visibility: hidden;
+}
+
+.slick-slide {
+	float: left;
+	height: 100%;
+	min-height: 1px;
+	outline: none;
+	display: none;
+}
+
+[dir="rtl"] .slick-slide {
+	float: right;
+}
+
+.slick-slide img {
+	display: block;
+}
+
+.slick-slide.slick-loading img {
+	display: none;
+}
+
+.slick-slide.dragging img {
+	pointer-events: none;
+}
+
+.slick-initialized .slick-slide {
+	display: block;
+}
+
+.slick-loading .slick-slide {
+	visibility: hidden;
+}
+
+.slick-vertical .slick-slide {
+	display: block;
+	height: auto;
+	border: 1px solid transparent;
+}
+
+.slick-arrow.slick-hidden {
+	display: none;
+}
+
 .resize-active * {
 	-webkit-transition: none !important;
 	transition: none !important;
@@ -1854,6 +1949,14 @@ body.compensate-for-scrollbar {
 	right: 0;
 	top: 90px;
 	z-index: 4;
+}
+
+.visual-area .block-title {
+	position: relative;
+	font-size: 20px;
+	line-height: 1.4;
+	display: block;
+	margin: 0 0 30px;
 }
 
 .visual-holder {
@@ -2893,6 +2996,65 @@ body.compensate-for-scrollbar {
 	margin: 0;
 }
 
+.partners-section {
+	position: relative;
+	padding: 85px 0 0;
+}
+
+.partners-section h2 {
+	text-align: center;
+	margin: 0 0 40px;
+}
+
+.partners-slider {
+	position: relative;
+}
+
+.partners-slider .slick-track {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+}
+
+.partners-slider .slick-track:after,
+.partners-slider .slick-track:before {
+	display: none;
+}
+
+.partners-slider .slick-list {
+	margin: 0 -15px;
+}
+
+.partners-slider .slide {
+	padding: 0 15px;
+}
+
+.partners-slider .partners-logo-image {
+	position: relative;
+	text-align: center;
+	max-width: 250px;
+	margin: 0 auto;
+}
+
+.partners-slider .partners-logo-image a {
+	position: relative;
+	display: inline-block;
+	vertical-align: top;
+	outline: none;
+}
+
+.partners-slider img {
+	display: inline-block;
+	vertical-align: top;
+	max-width: 100%;
+	height: auto;
+}
+
 @media (min-width: 768px) {
 	.menu-opener {
 		display: none;
@@ -3072,6 +3234,10 @@ body.compensate-for-scrollbar {
 
 	.footer {
 		padding: 54px 0 100px;
+	}
+
+	.partners-section {
+		padding: 60px 0 0;
 	}
 }
 
@@ -3268,6 +3434,14 @@ body.compensate-for-scrollbar {
 	.footer-nav-area {
 		padding: 0 0 0 50px;
 	}
+
+	.partners-section {
+		padding: 45px 0 0;
+	}
+
+	.partners-section h2 {
+		margin: 0 0 30px;
+	}
 }
 
 @media (max-width: 1023px) {
@@ -3313,6 +3487,11 @@ body.compensate-for-scrollbar {
 	.visual-area .social-links {
 		position: relative;
 		top: 0;
+	}
+
+	.visual-area .block-title {
+		font-size: 18px;
+		margin: 0 0 20px;
 	}
 
 	.visual-caption {
@@ -3468,6 +3647,14 @@ body.compensate-for-scrollbar {
 	.form-thankyou-block {
 		font-size: 22px;
 	}
+
+	.partners-section {
+		padding: 40px 0 0;
+	}
+
+	.partners-slider .partners-logo-image {
+		max-width: 200px;
+	}
 }
 
 @media (max-width: 767px) {
@@ -3560,6 +3747,11 @@ body.compensate-for-scrollbar {
 	.menu li {
 		padding: 0;
 		margin: 0 0 12px;
+	}
+
+	.visual-area .block-title {
+		font-size: 16px;
+		margin: 0 0 15px;
 	}
 
 	.visual-caption {
@@ -3737,6 +3929,18 @@ body.compensate-for-scrollbar {
 		padding: 20px 0 0;
 		font-size: 20px;
 	}
+
+	.partners-section {
+		padding: 30px 0 0;
+	}
+
+	.partners-section h2 {
+		margin: 0 0 25px;
+	}
+
+	.partners-slider .partners-logo-image {
+		max-width: 175px;
+	}
 }
 
 @media all and (max-width: 576px) {
@@ -3901,6 +4105,10 @@ body.compensate-for-scrollbar {
 
 	.footer-nav-col .title {
 		margin: 0 0 10px;
+	}
+
+	.partners-section h2 {
+		margin: 0 0 15px;
 	}
 }
 
