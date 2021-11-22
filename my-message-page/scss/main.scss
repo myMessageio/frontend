@@ -1,6 +1,7 @@
 $breakpoints: (
 	'xs-phone': 320px,
 	'phone': 480px,
+	'lg-phone': 575px,
 	'tablet': 768px,
 	'desktop': 1024px,
 	'widescreen': 1200px,
@@ -1196,6 +1197,10 @@ $media-expressions: (
 		padding: 30px 0;
 	}
 
+	@include media('<lg-phone') {
+		padding: 30px 0 15px;
+	}
+
 	h2 {
 		color: $white;
 		margin: 0 0 25px;
@@ -1259,9 +1264,23 @@ $media-expressions: (
 		align-items: center;
 		justify-content: space-between;
 
+		@include media('<lg-phone') {
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+
 		li {
 			position: relative;
-			padding: 0 15px;
+			padding: 0 20px;
+
+			@include media('<desktop') {
+				padding: 0 15px;
+			}
+
+			@include media('<lg-phone') {
+				width: 33.333%;
+				margin: 0 0 15px;
+			}
 		}
 
 		a {

@@ -2501,7 +2501,7 @@ body.compensate-for-scrollbar {
 
 .growing-section .growing-list li {
 	position: relative;
-	padding: 0 15px;
+	padding: 0 20px;
 }
 
 .growing-section .growing-list a {
@@ -3578,6 +3578,10 @@ body.compensate-for-scrollbar {
 		padding: 0;
 	}
 
+	.growing-section .growing-list li {
+		padding: 0 15px;
+	}
+
 	.use-cases-section {
 		padding: 35px 0 0;
 	}
@@ -3954,6 +3958,25 @@ body.compensate-for-scrollbar {
 
 	.fancybox-thumbs__list a {
 		max-width: calc(100% - 10px);
+	}
+}
+
+@media (max-width: 574px) {
+	.growing-section {
+		padding: 30px 0 15px;
+	}
+
+	.growing-section .growing-list {
+		-ms-flex-wrap: wrap;
+		flex-wrap: wrap;
+		-webkit-box-pack: center;
+		-ms-flex-pack: center;
+		justify-content: center;
+	}
+
+	.growing-section .growing-list li {
+		width: 33.333%;
+		margin: 0 0 15px;
 	}
 }
 
