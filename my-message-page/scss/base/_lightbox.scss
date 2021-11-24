@@ -1,3 +1,30 @@
+.popup-holder {
+	position: relative;
+	overflow: hidden;
+	height: 0;
+}
+
+.lightbox-demo {
+
+	@include media('>=tablet') {
+		width: 500px;
+	}
+
+	.text {
+		font-size: 21px;
+		line-height: 1.6;
+		font-weight: 500;
+		color: $black;
+		position: relative;
+		text-align: center;
+		display: block;
+
+		@include media('<tablet') {
+			font-size: 16px;
+		}
+	}
+}
+
 body.compensate-for-scrollbar {
 	overflow: hidden;
 }
@@ -209,11 +236,11 @@ body.compensate-for-scrollbar {
 	cursor: zoom-in;
 }
 
-.fancybox-can-swipe .fancybox-content,
+/* .fancybox-can-swipe .fancybox-content,
 .fancybox-can-pan .fancybox-content {
 	cursor: -webkit-grab;
 	cursor: grab;
-}
+} */
 
 .fancybox-is-grabbing .fancybox-content {
 	cursor: -webkit-grabbing;

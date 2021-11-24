@@ -740,6 +740,22 @@ input[type="submit"] {
 	cursor: pointer;
 }
 
+.popup-holder {
+	position: relative;
+	overflow: hidden;
+	height: 0;
+}
+
+.lightbox-demo .text {
+	font-size: 21px;
+	line-height: 1.6;
+	font-weight: 500;
+	color: #000;
+	position: relative;
+	text-align: center;
+	display: block;
+}
+
 body.compensate-for-scrollbar {
 	overflow: hidden;
 }
@@ -964,10 +980,11 @@ body.compensate-for-scrollbar {
 	cursor: zoom-in;
 }
 
-.fancybox-can-swipe .fancybox-content,
+/* .fancybox-can-swipe .fancybox-content,
 .fancybox-can-pan .fancybox-content {
+	cursor: -webkit-grab;
 	cursor: grab;
-}
+} */
 
 .fancybox-is-grabbing .fancybox-content {
 	cursor: grabbing;
@@ -3056,6 +3073,10 @@ body.compensate-for-scrollbar {
 }
 
 @media (min-width: 768px) {
+	.lightbox-demo {
+		width: 500px;
+	}
+
 	.menu-opener {
 		display: none;
 	}
@@ -3678,6 +3699,10 @@ body.compensate-for-scrollbar {
 	.h3 {
 		font-size: 16px;
 		line-height: 20px;
+	}
+
+	.lightbox-demo .text {
+		font-size: 16px;
 	}
 
 	.top-container:before {
