@@ -3,7 +3,6 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<link rel="icon" type="image/png" sizes="32x32" href="images/favicon.png">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Staking</title>
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
@@ -11,8 +10,6 @@
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" defer></script>
 	<script>window.jQuery || document.write('<script src="js/jquery-3.3.1.min.js" defer><\/script>')</script>
 	<script src="js/jquery.main.js" defer></script>
-	<script src="js/web3.min.js"></script>
-	<script src="js/stakingcode.js"></script> 
 </head>
 <body>
 	<div id="wrapper">
@@ -28,7 +25,7 @@
 								<a href="https://twitter.com/myMessageOS" target="_blank"><i class="icon-twitter"></i></a>
 							</li>
 							<li>
-								<a href="https://discord.gg/BCKyD3HxRh" target="_blank"><i class="icon-discord"></i></a>
+								<a href="https://github.com/myMessageio" target="_blank"><i class="icon-discord"></i></a>
 							</li>
 							<li>
 								<a href="https://t.me/mymessageEN" target="_blank"><i class="icon-send"></i></a>
@@ -58,16 +55,6 @@
 						<strong class="bar-title">BEP20 MESA Token Address is:</strong>
 						<span class="text">0xb192d5fC358D35194282a1a06814aba006198010</span>
 					</div>
-					
-					
-					<br>
- 
-
-					
-	 			
-					
-					
-					
 					<div class="text-holder">
 						<p>Generate <span>40%</span> to <span>60%</span> APY by staking <span>MESA BEP-20</span> tokens. Select your desired pool: Lavender or Lemongrass, with varying APY and locking periods, enter your chosen amount and press the “Stake Tokens” button. You are required to use MetaMask and connect to our Staking Dapp.</p>
 					</div>
@@ -94,13 +81,6 @@
 										<strong class="title">APY</strong>
 										<span class="percantage">40%</span>
 									</div>
-									<br>
-									<div class="info-wrap">
-										<strong class="title" >Amount still available for Stake</strong>
-										<span class="day" id="tokensleftid1"></span>
-									</div>									
-									
-									
 								</div>
 							</div>
 						</div>
@@ -109,7 +89,7 @@
 								<div class="heading-bar">
 									<div class="heading-wrap">
 										<span class="heading-logo">
-											<img src="images/lemongrass-icon.png" alt="Lavender">
+											<img src="images/lavender-icon.svg" alt="Lavender">
 										</span>
 										<strong class="heading">Lemongrass</strong>
 									</div>
@@ -126,12 +106,6 @@
 										<strong class="title">APY</strong>
 										<span class="percantage">60%</span>
 									</div>
-									<br>
-									<div class="info-wrap">
-										<strong class="title">Amount still available for Stake</strong>
-										<span class="day" id="tokensleftid2"></span>
-									</div>										
-									
 								</div>
 							</div>
 						</div>
@@ -151,24 +125,24 @@
 								<form action="#" class="form-area">
 									<div class="fields-area">
 										<div class="field-holder">
-											<label for="stakepoolid">Pool</label>
-											<select id="stakepoolid">
-												<option value="lavender" selected>Lavender</option>
-												<option value="lemongrass" >Lemongrass</option>
+											<label for="pool">Pool</label>
+											<select id="pool">
+												<option>Lavender</option>
+												<option>Lemongrass</option>
 											</select>
 										</div>
 										<div class="field-holder">
-											<label for="amountbuy">Amount</label>
-											<input type="text" id="amountbuy" class="field" placeholder="">
+											<label for="amount">Amount</label>
+											<input type="text" id="amount" class="field" placeholder="">
 										</div>
 									</div>
 									<div class="btn-holder">
-										<button type="submit" class="btn btn-primary" id="stakebutton" onclick="stake()" disabled>Stake</button>
+										<button type="submit" class="btn btn-primary disabled">Stake</button>
 									</div>
 									<div class="checkbox-area">
 										<label class="checkbox-label">
-											<input type="checkbox" id="checkAddress" name="checkAddress" >
-											<span class="checkbox-text"   onclick="checkAddress()" >
+											<input type="checkbox">
+											<span class="checkbox-text">
 												<i class="icon"></i>
 												I have read and I agree to Disclaimer below
 											</span>
@@ -183,15 +157,15 @@
 								<form action="#" class="form-area">
 									<div class="fields-area">
 										<div class="field-holder">
-											<label for="stakepoolid">Pool</label>
-											<select id="stakepoolid">
-												<option selected>Lavender</option>
+											<label for="pool01">Pool</label>
+											<select id="pool01">
+												<option>Lavender</option>
 												<option>Lemongrass</option>
 											</select>
 										</div>
 									</div>
 									<div class="btn-holder">
-										<button type="submit" class="btn btn-primary" onclick="withdrawstaketoken()" disabled>Withdraw MESA</button>
+										<button type="submit" class="btn btn-primary">Withdraw MESA</button>
 									</div>
 								</form>
 							</div>
@@ -202,39 +176,37 @@
 								<form action="#" class="form-area">
 									<div class="fields-area">
 										<div class="field-holder">
-											<label for="stakepoolid">Pool</label>
-											<select id="stakepoolid">
-												<option selected>Lavender</option>
-												<option >Lemongrass</option>
+											<label for="pool02">Pool</label>
+											<select id="pool02">
+												<option>Lavender</option>
+												<option selected>Lemongrass</option>
 											</select>
 										</div>
 									</div>
 									<div class="btn-holder">
-										<button type="submit" class="btn btn-primary"  onclick="withdrawrewardtoken()" disabled>Withdraw MESA</button>
+										<button type="submit" class="btn btn-primary">Withdraw MESA</button>
 									</div>
 								</form>
 							</div>
 						</div>
 					</div>
-				 
-					
-					<span class="info-text" id="userwalletinfo">You have <span><a href="#">xxx.xxx</a> </span>MESA and <span><a href="#">xx.xx</a> </span>BNB</span>
+					<span class="info-text">You have <span><a href="#">xxx.xxx</a> </span>MESA and <span><a href="#">xx.xx</a> </span>BNB</span>
 					<div class="date-info-area">
 						<div class="info-col">
 							<h3>Lavender</h3>
 							<ul class="date-info-list list-unstyled">
-								<li>You have staked <a href="#" id="pool1stakedamount">MESA</a></li>
-								<li>Your reward <a href="#" id="pool1rewardamount">MESA</a></li>
+								<li>You have staked <a href="#">xxxx MESA</a></li>
+								<li>Your reward <a href="#">xxxx MESA</a></li>
 							</ul>
-							<span class="text" id="pool1maturitydate">Maturity date: </span>
+							<span class="text">Maturity date: </span>
 						</div>
 						<div class="info-col">
 							<h3>Lemongrass</h3>
 							<ul class="date-info-list list-unstyled">
-								<li>You have staked <a href="#" id="pool2stakedamount">MESA</a></li>
-								<li>Your reward <a href="#" id="pool2rewardamount">MESA</a></li>
+								<li>You have staked <a href="#">xxxx MESA</a></li>
+								<li>Your reward <a href="#">xxxx MESA</a></li>
 							</ul>
-							<span class="text" id="pool2maturitydate">Maturity date: </span>
+							<span class="text">Maturity date: </span>
 						</div>
 					</div>
 				</div>
@@ -249,7 +221,6 @@
 							<li>When you use myMessage Staking service, you shall fully recognize the risks of investment in cryptocurrency and operate cautiously.</li>
 							<li>myMessage reserves the right to suspend or terminate the Staking service anytime without any notice. </li>
 							<li>Due to network delay, computer system failures and other force majeure, which may lead to loss, delay, suspension or deviation of myMessage Staking service execution, myMessage will use commercially reasonable effort to ensure but not promise that myMessage service execution system runs stably and effectively. myMessage does not take any responsibility if the final execution doesn’t match your expectations due to the above factors.</li>
-							<li>You need to stake minimum 1,001 MESA.</li>
 							<li>There is no early withdrawal/unstake, as you can only withdraw your staked tokens and rewards upon or after maturity.</li>
 							<li>I have read and agreed to the myMessage Staking service Agreement and have agreed to use myMessage Staking service. I am aware of these risks and confirm to use this service and  under no circumstances will the myMessage be held responsible or liable in any way for any claims, damages, losses, expenses, costs or liabilities whatsoever (including, without limitation, any direct or indirect damages for loss of profits, business interruption or loss of information) resulting or arising directly or indirectly from your use of or inability to use this service or any websites linked to it, or from your reliance on the information and material on this website, even if myMessage has been advised of the possibility of such damages in advance.</li>
 						</ul>
