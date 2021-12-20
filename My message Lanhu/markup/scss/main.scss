@@ -85,10 +85,12 @@ $media-expressions: (
 		opacity: 0.8;
 	}
 
-	&.disabled {
+	&.disabled,
+	&:disabled {
 		pointer-events: none;
 		cursor: default;
-		opacity: 0.5;
+		background: #ced1d1;
+		opacity: 1;
 	}
 }
 

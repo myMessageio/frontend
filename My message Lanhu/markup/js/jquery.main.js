@@ -1,5 +1,6 @@
 jQuery(function() {
 	initCustomForms();
+	initCustom();
 });
 
 
@@ -10,6 +11,19 @@ function initCustomForms() {
 		wrapNativeOnMobile: false,
 	});
 	jcf.replaceAll();
+}
+
+
+// initialize custom form elements
+function initCustom() {
+	 jQuery('#checkAddress').change(function() {
+        if($(this).is(":checked")) {
+        	jQuery(this).parents('.form-area').find('.btn').attr('disabled', false);
+        }
+        else {
+        	jQuery(this).parents('.form-area').find('.btn').attr('disabled', true);
+        }
+    });
 }
 
 
